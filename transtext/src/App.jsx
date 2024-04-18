@@ -2,12 +2,14 @@ import About from "./components/About";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
+
   const [alert, setAlert] = useState(null);
+
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
@@ -18,6 +20,7 @@ function App() {
       devicePixelRatio;
     }, 1000);
   };
+
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
@@ -31,6 +34,7 @@ function App() {
       document.title = "TransText - Light";
     }
   };
+
   return (
     <Router>
       <Navbar
